@@ -26,7 +26,7 @@ const checkNumber = function () {
     else if (!guess && guess !== 0) {
         displayMessage('No number! Type something, moron!');
 
-        //When player wins
+        //When player winsssss
     } else if (guess === secretNumber) {
         displayMessage('💥🎉🎊Correct Number!!!');
         document.querySelector('.number').textContent = secretNumber;
