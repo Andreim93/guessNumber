@@ -18,7 +18,12 @@ const checkNumber = function () {
     let guess = Number(document.querySelector('.guess').value);
 
     //No input
-    if (!guess) {
+    if (guess === '0') {
+        displayMessage('Number must be between 1 and 20! ')
+    }
+
+
+    else if (!guess && guess !== 0) {
         displayMessage('No number! Type something, moron!');
 
         //When player wins
@@ -32,9 +37,9 @@ const checkNumber = function () {
             highScore = score;
             document.querySelector('.highscore').textContent = highScore;
         }
-
-        //When guess is too HIGH    
-    } else if (guess !== secretNumber) {
+    }
+    //When guess is too HIGH    
+    else if (guess !== secretNumber && guess <= 20 && guess >= 1) {
         if (score > 1) {
             displayMessage(guess > secretNumber ? '📈 Too high' : '📉 Too low');
             score--;
@@ -43,6 +48,9 @@ const checkNumber = function () {
             displayMessage('You Loose');
             document.querySelector('.score').textContent = 0;
         }
+    }
+    else if (guess < 1 || guess > 20) {
+        displayMessage("Number must be between 1 and 20! ");
     }
 
 
